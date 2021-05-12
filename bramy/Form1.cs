@@ -75,6 +75,7 @@ namespace bramy
             btnbs.Visible = false;
             panelfurtki.Visible = false;
             panelbramy.Visible = false;
+            panelwozki.Visible = false;
 
             panel1.Height = 95;
             panel10.Height = 95;
@@ -835,6 +836,10 @@ namespace bramy
             btnbs.Visible = false;
             panelfurtki.Visible = false;
             panelbramy.Visible = false;
+            panelwozki.Visible = false;
+            panelzz.Visible = false;
+
+
 
             clear();
         }
@@ -850,6 +855,12 @@ namespace bramy
             panelprzemek.Visible = true;
 
             panelbramy.Visible = false;
+            panelwozki.Visible = false;
+            panelzz.Visible = false;
+
+
+            clear();
+
         }
 
         private void btnb_Click(object sender, EventArgs e)
@@ -866,6 +877,12 @@ namespace bramy
 
             panelfurtki.Visible = false;
             panelbramy.Visible = true;
+            panelwozki.Visible = true;
+            panelzz.Visible = false;
+
+
+            clear();
+
 
         }
 
@@ -876,6 +893,8 @@ namespace bramy
 
             panelfurtki.Visible = false;
             panelbramy.Visible = true;
+            panelwozki.Visible = true;
+            panelzz.Visible = false;
         }
 
         private void btnbs_Click(object sender, EventArgs e)
@@ -886,6 +905,9 @@ namespace bramy
             panelfurtki.Visible = true;
             panelbramy.Visible = false;
             panelprzemek.Visible = false;
+            panelwozki.Visible = false;
+            panelzz.Visible = true;
+
 
         }
 
