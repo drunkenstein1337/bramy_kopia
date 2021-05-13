@@ -18,14 +18,19 @@ namespace bramy
         string[,] arr = new string[1000, 9];
         string[,] arr1 = new string[1000, 12];
 
+        int tab = 1;
+
         double kpr = 0, kpl = 0;
         double m1, m2, m3, m4;
         double mp1, mp2, mp3;
         double p1 = 0, p2 = 0, p3 = 0, p4 = 0;
         double pp1 = 0, pp2 = 0, pp3 = 0;
         double total, rob, dod, cie;
+        double woz, kie;
 
-
+        double masap44 = 1.82;
+        double masap88 = 10.04;
+   
         public Form1()
         {
 
@@ -58,8 +63,20 @@ namespace bramy
             dodatki.TextChanged += removenans;
             ciecie.TextChanged += removenans;
 
+            zawias1.TextChanged += removenans;
+            zawias2.TextChanged += removenans;
+
+            cp44.TextChanged += removenans;
+            cpr88.TextChanged += removenans;
+            lp44.TextChanged += removenans;
+            lp88.TextChanged += removenans;
+            wozki.TextChanged += removenans;
+            kieszen.TextChanged += removenans;
+
 
             textBox9.Text = "7,10";
+            textBoxp9.Text = "7,10";
+
             cm.Text = "50";
             cc.Text = "2,70";
             
@@ -209,6 +226,16 @@ namespace bramy
             dodatki.Text = "";
             ciecie.Text = "";
 
+            zawias1.Text = "";
+            zawias2.Text = "";
+
+            cp44.Text = "";
+            cpr88.Text = "";
+            lp44.Text = "";
+            lp88.Text = "";
+            wozki.Text = "";
+            kieszen.Text = "";
+
             masa1.Text = "";
             masa2.Text = "";
             masa3.Text = "";
@@ -227,11 +254,15 @@ namespace bramy
             radioButton1.Checked = true;
             radioButton5.Checked = true;
 
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+
 
             colour();
         }
         private void update()
         {
+            double z1, z2;
             double mn = 0;
             double mb = 0;
             double pow = 0;
@@ -319,13 +350,15 @@ namespace bramy
                     mn = m1 * ln1;
                     masan.Text = Convert.ToString(mn);
                     masan.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     pow = p1*ln1;
                 }
                 else
                 {
                     masab.ForeColor = System.Drawing.Color.Red;
                     masan.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
                 }
             }
             else if (radioButton2.Checked)
@@ -336,17 +369,20 @@ namespace bramy
                     masab.Text = Convert.ToString(mb);
                     masab.ForeColor = System.Drawing.Color.Black;
 
+
                     mn = m1 * ln1 + m2 * ln2;
                     masan.Text = Convert.ToString(mn);
                     masan.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     pow = p1*ln1 + p2*ln2;
                 }
                 else
                 {
                     masab.ForeColor = System.Drawing.Color.Red;
                     masan.ForeColor = System.Drawing.Color.Red;
-                }            
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
+                }
             }
             else if (radioButton3.Checked)
             {   
@@ -359,13 +395,15 @@ namespace bramy
                     mn = m1 * ln1 + m2 * ln2 + m3 * ln3;
                     masan.Text = Convert.ToString(mn);
                     masan.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     pow = p1*ln1 + p2*ln2 + p3*ln3;
                 }
                 else
                 {
                     masab.ForeColor = System.Drawing.Color.Red;
                     masan.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
                 }
             }
             else if (radioButton4.Checked)
@@ -379,7 +417,7 @@ namespace bramy
                     mn = m1 * ln1 + m2 * ln2 + m3 * ln3 + m4 * ln4;
                     masan.Text = Convert.ToString(mn);
                     masan.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     pow = p1*ln1 + p2*ln2 + p3*ln3 + p4*ln4;
 
                 }
@@ -387,6 +425,8 @@ namespace bramy
                 {
                     masab.ForeColor = System.Drawing.Color.Red;
                     masan.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
 
                 }
             }
@@ -405,13 +445,15 @@ namespace bramy
                     mnp = mp1 * lnp1;
                     masanp.Text = Convert.ToString(mnp);
                     masanp.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     powp = pp1 * lnp1;
                 }
                 else
                 {
                     masabp.ForeColor = System.Drawing.Color.Red;
                     masanp.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
                 }
             }
             else if (radioButton6.Checked)
@@ -425,13 +467,15 @@ namespace bramy
                     mnp = mp1 * lnp1 + mp2 * lnp2;
                     masanp.Text = Convert.ToString(mnp);
                     masanp.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     powp = pp1 * lnp1 + pp2 * lnp2;
                 }
                 else
                 {
                     masabp.ForeColor = System.Drawing.Color.Red;
                     masanp.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
+
                 }
             }
             else if (radioButton7.Checked)
@@ -445,13 +489,14 @@ namespace bramy
                     mnp = mp1 * lnp1 + mp2 * lnp2 + mp3 * lnp3;
                     masanp.Text = Convert.ToString(mnp);
                     masanp.ForeColor = System.Drawing.Color.Black;
-
+                    lbltotal.ForeColor = System.Drawing.Color.Black;
                     powp = pp1 * lnp1 + pp2 * lnp2 + pp3 * lnp3;
                 }
                 else
                 {
                     masabp.ForeColor = System.Drawing.Color.Red;
                     masanp.ForeColor = System.Drawing.Color.Red;
+                    lbltotal.ForeColor = System.Drawing.Color.Red;
                 }
             }
 
@@ -517,7 +562,104 @@ namespace bramy
                 cie = 0;
 
 
-            total = kosztm + kosztc + kpr + kpl + dod +cie + rob;
+            switch (tab)
+            {
+                case 1:
+
+                    total = kosztm + kosztc + kpr + kpl + dod + cie + rob;
+
+                    break;
+
+
+                case 2:
+
+                    if (zawias1.Text != "")
+                        z1 = Convert.ToDouble(zawias1.Text);
+                    else
+                        z1 = 0;
+
+                    if (zawias2.Text != "")
+                        z2 = Convert.ToDouble(zawias2.Text);
+                    else
+                        z2 = 0;
+
+                    total = kosztm + kosztc + kpr + kpl + dod + cie + rob + z1 + z2;
+
+                    break;
+
+
+                case 3:
+
+                    double c44, c88;
+                    double d44, d88;
+                    double m44, m88;
+                    double k44, k88;
+
+                    if (cp44.Text != "")
+                        c44 = Convert.ToDouble(cp44.Text);
+                    else
+                        c44 = 0;
+
+                    if (cpr88.Text != "")
+                        c88 = Convert.ToDouble(cpr88.Text);
+                    else
+                        c88 = 0;
+
+                    if (lp44.Text != "")
+                        d44 = Convert.ToDouble(lp44.Text);
+                    else
+                        d44 = 0;
+
+                    if (lp88.Text != "")
+                        d88 = Convert.ToDouble(lp88.Text);
+                    else
+                        d88 = 0;
+
+                    if (wozki.Text != "")
+                        woz = Convert.ToDouble(wozki.Text);
+                    else
+                        woz = 0;
+
+                    if (kieszen.Text != "")
+                        kie = Convert.ToDouble(kieszen.Text);
+                    else
+                        kie = 0;
+
+
+                    m44 = masap44 * d44;
+                    m88 = masap88 * d88;
+
+                    k44 = m44 * c44;
+                    k88 = m88 * c88;
+
+                    mp44.Text = Convert.ToString(m44);
+                    mp88.Text = Convert.ToString(m88);
+                    kp44.Text = Convert.ToString(k44);
+                    kp88.Text = Convert.ToString(k88);
+
+                    total = kosztm + kosztc + kpr + kpl + dod + cie + rob + k44 + k88 + woz + kie;
+
+                    break;
+
+                case 4:
+
+                    if (zawias1.Text != "")
+                        z1 = Convert.ToDouble(zawias1.Text);
+                    else
+                        z1 = 0;
+
+                    if (zawias2.Text != "")
+                        z2 = Convert.ToDouble(zawias2.Text);
+                    else
+                        z2 = 0;
+
+                    total = kosztm + kosztc + kpr + kpl + dod + cie + rob + z1 + z2;
+
+                    break;
+            }
+
+                
+            
             lbltotal.Text = string.Format("{0:c}", total);
             colour();
         }
@@ -829,6 +971,9 @@ namespace bramy
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //przeslo
+            tab = 1;
+
             btnp.Enabled = false;
             btnf.Enabled = true;
             btnb.Enabled = true;
@@ -840,12 +985,14 @@ namespace bramy
             panelzz.Visible = false;
 
 
-
             clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //furtka
+            tab = 2;
+
             btnp.Enabled = true;
             btnf.Enabled = false;
             btnb.Enabled = true;
@@ -865,6 +1012,9 @@ namespace bramy
 
         private void btnb_Click(object sender, EventArgs e)
         {
+            //brama
+            tab = 3;
+
             btnp.Enabled = true;
             btnf.Enabled = true;
             btnb.Enabled = false;
@@ -888,6 +1038,9 @@ namespace bramy
 
         private void btnbp_Click(object sender, EventArgs e)
         {
+            //przesuwna
+            tab = 3;
+
             btnbp.Enabled = false;
             btnbs.Enabled = true;
 
@@ -895,10 +1048,15 @@ namespace bramy
             panelbramy.Visible = true;
             panelwozki.Visible = true;
             panelzz.Visible = false;
+
+            clear();
         }
 
         private void btnbs_Click(object sender, EventArgs e)
         {
+            //skrydlowa
+            tab = 4;
+
             btnbs.Enabled = false;
             btnbp.Enabled = true;
 
@@ -908,7 +1066,7 @@ namespace bramy
             panelwozki.Visible = false;
             panelzz.Visible = true;
 
-
+            clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
